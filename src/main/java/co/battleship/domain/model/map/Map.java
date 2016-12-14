@@ -53,17 +53,17 @@ public class Map {
         return true;
     }
 
-    private boolean isValidArea(Ship ship, Position position, Plane plane){
+    private boolean isValidArea(Ship ship, Position position, Direction direction){
 
         Position topRigthPosition = position;
         int length, width;
 
-        if(plane == Plane.HORIZONTAL)
+        if(direction == Direction.HORIZONTAL)
             if ((position.horizontalPosition() + ship.length()) > this.width
                     || position.verticalPosition() + ship.width() > this.length)
                 return false;
 
-        if(plane == Plane.VERTICAL)
+        if(direction == Direction.VERTICAL)
             if ((position.horizontalPosition() + ship.width()) > this.width
                     || position.verticalPosition() + ship.length() > this.length)
                 return false;
@@ -73,24 +73,24 @@ public class Map {
 
     //private void check
 
-    public void placeShip(Ship ship, Position position, Plane plane){
+    public void placeShip(Ship ship, Position position, Direction direction){
 
         if(!isValidPosition(position))
             throw new IllegalArgumentException("Origin position is not valid");
 
-        if(!isValidArea(ship, position, plane))
+        if(!isValidArea(ship, position, direction))
             throw new IllegalArgumentException("Invalid Location");
 
         if(!isFreeSpace(position, ship.length(), ship.width()))
             throw new IllegalArgumentException("Selected area is not free");
 
-        if(plane == Plane.HORIZONTAL)
+        if(direction == Direction.HORIZONTAL)
             for (int i = position.verticalPosition(); i <= ship.length(); i++)
                 for (int j = position.horizontalPosition(); j <= ship.width(); j++)
                     map[ i ][ j ] = SHIP;
 
 
-        if(plane == Plane.VERTICAL)
+        if(direction == Direction.VERTICAL)
             for (int i = position.verticalPosition(); i <= ship.width(); i++)
                 for (int j = position.horizontalPosition(); j <= ship.length(); j++)
                     map[ i ][ j ] = SHIP;

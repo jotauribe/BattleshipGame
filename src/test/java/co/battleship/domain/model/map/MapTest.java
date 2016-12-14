@@ -4,8 +4,6 @@ import co.battleship.domain.model.ship.Ship;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by jotauribe on 13/12/16.
  */
@@ -27,14 +25,14 @@ public class MapTest {
 
     @Test
     public void placeShip_GivenAValidLocation_ShipCorrectlyLocated(){
-         map.placeShip(ship, position, Plane.HORIZONTAL);
+         map.placeShip(ship, position, Direction.HORIZONTAL);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void placeShip_GivenAInvalidLocation_ThrowsException(){
+    public void placeShip_GivenAInvalidLocation_ExceptionThrown(){
         Position secondPosition = new Position(1,2);
-        map.placeShip(ship, position, Plane.HORIZONTAL);
-        map.placeShip(ship, secondPosition, Plane.VERTICAL);
+        map.placeShip(ship, position, Direction.HORIZONTAL);
+        map.placeShip(ship, secondPosition, Direction.VERTICAL);
     }
 
 }
