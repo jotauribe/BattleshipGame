@@ -1,6 +1,7 @@
 package co.battleship.domain.model.party;
 
 import java.util.Random;
+import java.util.UUID;
 
 /**
  * Created by jotauribe on 14/12/16.
@@ -8,10 +9,6 @@ import java.util.Random;
 public class PartyId {
 
     private String id;
-
-    private PartyId(){
-        id = new Random().toString();
-    }
 
     public PartyId(String id){
         setId(id);
@@ -27,8 +24,8 @@ public class PartyId {
         return id;
     }
 
-    public static PartyId Random(){
-        return new PartyId(new Random().toString());
+    public static PartyId create(){
+        return new PartyId( UUID.randomUUID().toString() );
     }
 
     @Override

@@ -25,14 +25,14 @@ public class MapTest {
 
     @Test
     public void placeShip_GivenAValidLocation_ShipCorrectlyLocated(){
-         map.placeShip(ship, position, Direction.HORIZONTAL);
+         map.placeShip(ship, position, Orientation.HORIZONTAL);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void placeShip_GivenAInvalidLocation_ExceptionThrown(){
         Position secondPosition = new Position(1,2);
-        map.placeShip(ship, position, Direction.HORIZONTAL);
-        map.placeShip(ship, secondPosition, Direction.VERTICAL);
+        map.placeShip(ship, position, Orientation.HORIZONTAL);
+        map.placeShip(ship, secondPosition, Orientation.VERTICAL);
     }
 
 }

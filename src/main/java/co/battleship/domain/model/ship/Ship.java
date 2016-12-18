@@ -42,5 +42,9 @@ public class Ship {
         return length * width;
     }
 
+    public int totalLife(){
+        return area();
+    }
+
 
 }

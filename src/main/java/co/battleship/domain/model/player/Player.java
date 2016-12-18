@@ -1,5 +1,7 @@
 package co.battleship.domain.model.player;
 
+import co.battleship.domain.model.map.Map;
+
 /**
  * Created by jotauribe on 13/12/16.
  */
