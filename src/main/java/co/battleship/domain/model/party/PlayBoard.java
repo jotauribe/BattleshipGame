@@ -1,11 +1,8 @@
 package co.battleship.domain.model.party;
 
-import co.battleship.domain.model.map.Map;
-import co.battleship.domain.model.map.Position;
+import co.battleship.domain.model.grid.Coordinate;
+import co.battleship.domain.model.grid.Grid;
 import co.battleship.domain.model.player.PlayerId;
-import co.battleship.domain.model.ship.Ship;
-
-import java.util.List;
 
 /**
  * Created by jotauribe on 14/12/16.
@@ -14,26 +11,31 @@ public class PlayBoard {
 
     private PlayerId ownerId;
 
-    private Map fleetMap;
+    private Grid grid;
 
-    public PlayBoard(PlayerId ownerId, Map fleetMap){
+    private PlayBoard(PlayerId ownerId, Grid grid){
         setOwnerId(ownerId);
-        setFleetMap(fleetMap);
+        setGrid(grid);
     }
 
-    public void setOwnerId(PlayerId ownerId){
+    private void setOwnerId(PlayerId ownerId){
         if(ownerId == null)
             throw new IllegalArgumentException("PlayerId can not be null");
         this.ownerId = ownerId;
     }
 
-    public void setFleetMap(Map fleetMap){
-        if(fleetMap == null)
-            throw new IllegalArgumentException("Fleet Map can not be null");
-        this.fleetMap = fleetMap;
+    private void setGrid(Grid grid){
+        if(grid == null)
+            throw new IllegalArgumentException("Fleet Grid can not be null");
+        this.grid = grid;
     }
 
-    public boolean shootAt(Position position){
+    public PlayBoard create(PlayerId ownerId){
+        Grid defaultDimensionsGrid = Grid.create();
+        return  new PlayBoard(ownerId, defaultDimensionsGrid);
+    }
+
+    public boolean shootAt(Coordinate coordinate){
         return true;
     }
 

@@ -24,8 +24,12 @@ public class PartyId {
         return id;
     }
 
-    public static PartyId create(){
+    public static PartyId generate(){
         return new PartyId( UUID.randomUUID().toString() );
+    }
+
+    public static PartyId createFromRamdom(){
+        return null;
     }
 
     @Override

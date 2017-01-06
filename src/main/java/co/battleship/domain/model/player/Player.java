@@ -1,13 +1,9 @@
 package co.battleship.domain.model.player;
 
-import co.battleship.domain.model.map.Map;
-
 /**
  * Created by jotauribe on 13/12/16.
  */
 public class Player {
-
-    private static final int NICKNAME_MAX_LENGTH = 16;
 
     private PlayerId id;
 

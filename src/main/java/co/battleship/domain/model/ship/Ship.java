@@ -1,5 +1,7 @@
 package co.battleship.domain.model.ship;
 
+import java.util.List;
+
 /**
  * Created by jotauribe on 11/12/16.
  */
@@ -9,9 +11,13 @@ public class Ship {
 
     private static final int MAX_WIDTH = 2;
 
+    private String id;
+
     private int length;
 
     private int width;
+
+    private List<ShipSegment> segments;
 
     public Ship(int length, int width){
         setLength(length);

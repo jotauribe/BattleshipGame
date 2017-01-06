@@ -1,15 +1,15 @@
-package co.battleship.domain.model.map;
+package co.battleship.domain.model.grid;
 
 /**
  * Created by jotauribe on 13/12/16.
  */
-public class Position {
+public class Coordinate {
 
     private int horizontalPosition;
 
     private int verticalPosition;
 
-    public Position(int x, int y){
+    public Coordinate(int x, int y){
         horizontalPosition = x;
         verticalPosition = y;
     }
@@ -25,12 +25,12 @@ public class Position {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Position)) return false;
+        if (!(o instanceof Coordinate)) return false;
 
-        Position position = (Position) o;
+        Coordinate coordinate = (Coordinate) o;
 
-        if (horizontalPosition != position.horizontalPosition) return false;
-        return verticalPosition == position.verticalPosition;
+        if (horizontalPosition != coordinate.horizontalPosition) return false;
+        return verticalPosition == coordinate.verticalPosition;
 
     }
 

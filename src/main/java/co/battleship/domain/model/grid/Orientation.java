@@ -1,4 +1,4 @@
-package co.battleship.domain.model.map;
+package co.battleship.domain.model.grid;
 
 /**
  * Created by jotauribe on 13/12/16.

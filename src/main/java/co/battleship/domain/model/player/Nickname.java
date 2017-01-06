@@ -45,4 +45,10 @@ public class Nickname {
     public int hashCode() {
         return nickname.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return nickname;
+    }
 }
+

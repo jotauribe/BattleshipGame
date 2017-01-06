@@ -1,6 +1,5 @@
 package co.battleship.domain.model.party;
 
-import co.battleship.domain.model.player.Player;
 import co.battleship.domain.model.player.PlayerId;
 
 import java.util.Set;
@@ -16,16 +15,24 @@ public class Party {
 
     private int turnCounter;
 
-    private Set<Player> contenders;
+    private Set<PlayBoard> contenders;
     
     private PlayerId ownerId;
 
-    public Party(PlayerId playerId, PartyId partyId){
-
+    private Party(PlayerId ownerId){
+        partyId = PartyId.generate();
+        state = PartyState.CREATED;
+        setOwnerId(ownerId);
     }
 
-    private void setPartyId(String id){
-        this.partyId = PartyId.create();
+    private void setOwnerId(PlayerId ownerId){
+        if(ownerId == null)
+            throw new IllegalArgumentException("A non null Owner Id must be provided");
+        this.ownerId = ownerId;
+    }
+
+    public static Party create(PlayerId ownerId){
+        return new Party(ownerId);
     }
 
     public void addContender(PlayerId playerId){
